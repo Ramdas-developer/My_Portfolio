@@ -28,7 +28,7 @@ export default function Home() {
       
       <header data-aos="zoom-in" className="bg-black text-white p-5 fixed top-0 left-0 w-full z-50 shadow-md border-b-2 border-yellow-300"> 
         <div className="container mx-auto flex justify-between items-center cursor-pointer">
-          <h1 className="text-2xl font-bold text-yellow-500">Ramdas Singh</h1>
+        <ScrollLink to="hero" smooth={true} duration={400}><h1 className="text-2xl font-bold text-yellow-500">Ramdas Singh</h1></ScrollLink>
           <nav>
             <ul className="flex space-x-8 text-white">
             <li><ScrollLink to="hero" smooth={true} duration={400}>Home</ScrollLink></li>
@@ -98,15 +98,15 @@ export default function Home() {
           </p>
 
           <div data-aos="zoom-out" className='mt-8'>
-           <a href='/Ramdas Singh Resume.pdf' download className='bg-yellow-500 text-black px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-yellow-400 transition duration-300'>
+           <a href='/Ramdas Singh D.pdf' download className='bg-yellow-500 text-black px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-yellow-400 transition duration-300'>
            📄 Download CV
            </a>
           </div>
         </section>
         
-        {/*Skills*/}
+        {/*Skills*/} 
         
-        <section id="skills" className="py-10 px-10">
+        <section id="skills" className="py-10 px-10                                                                                                      ">
           <h3 data-aos="zoom-out" className="text-6xl text-center font-bold mb-12">Skills</h3>
           <div data-aos="zoom-in" className="grid grid-cols-1 md:grid-cols-2 gap-12 px-6">
             {/* Frontend Skills */}
