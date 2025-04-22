@@ -44,7 +44,7 @@ export default function Home() {
        
       <main className=" bg-black text-white w-full py-10 pt-10">
         {/*hero section */}
-        <section id="hero" className="flex items-center justify-between mx-10 py-10 ">
+        <section id="hero" className="flex items-center justify-between mx-10 py-20 mt-10">
           <div className='text-left w-1/2'>
           <h2 data-aos="fade-right" data-aos-duration="800" className="text-5xl font-extrabold">Hi, I am </h2>
           <h1 data-aos="fade-right" data-aos-duration="1000" className="text-6xl font-extrabold text-yellow-400">Ramdas Singh,</h1>
@@ -52,7 +52,7 @@ export default function Home() {
           <h2 className="mt-3 text-3xl font-bold">
              I'm a <span className="text-purple-600">
              <Typewriter
-                words={['MERN Stack Developer', 'React Developer', 'Node.js Developer', 'Full Stack Developer']}
+                words={['MERN Stack Developer', 'React Developer', 'Node.js Developer']}
                 loop={0} // Infinite loop
                 cursor
                 cursorStyle="|"
@@ -73,7 +73,7 @@ export default function Home() {
         </section>
 
         {/*About*/}
-        <section data-aos="fade-down" id="about" className="text-left mx-10 py-20 mt-10">
+        <section data-aos="fade-down" id="about" className="text-left mx-10 py-20 mt-20">
           <h1 data-aos="zoom-out" className="text-6xl text-center font-bold mb-8">About Me</h1>
           <h2 className="text-4xl font-bold">
              Hey, I'm <span className="text-yellow-400">Ramdas Singh</span><br/>
@@ -106,7 +106,7 @@ export default function Home() {
         
         {/*Skills*/} 
         
-        <section id="skills" className="py-10 px-10                                                                                                      ">
+        <section id="skills" className="mx-10 py-20 mt-10">                                                
           <h3 data-aos="zoom-out" className="text-6xl text-center font-bold mb-12">Skills</h3>
           <div data-aos="zoom-in" className="grid grid-cols-1 md:grid-cols-2 gap-12 px-6">
             {/* Frontend Skills */}
@@ -168,7 +168,7 @@ export default function Home() {
     <a data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="700" data-aos-delay="500" href="https://www.linkedin.com/in/ramdas-singh/" target="_blank" rel="noopener noreferrer" className="text-blue-400 text-4xl hover:text-blue-500">
       <FaLinkedin />
     </a>
-    <a data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="700" data-aos-delay="600" href="mailto:ramdassinghmt30@gmail.com" className="text-red-400 text-4xl hover:text-red-500">
+    <a data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="700" data-aos-delay="600" href="mailto:ramdassinghmt30@gmail.com" className="text-red-400 text-4xl hover:text-red-500" target="_blank" rel="noopener noreferrer">
       <FaEnvelope />
     </a>
   </div>
