@@ -4,11 +4,23 @@ import Link from 'next/link';
 import { Link as ScrollLink } from 'react-scroll';
 import { Typewriter } from 'react-simple-typewriter';
 import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Menu, X } from "lucide-react";
 
 export default function Home() {
+
+
+  const navItems = [
+    { to: "hero", label: "Home", scroll: true },
+    { to: "about", label: "About", scroll: true },
+    { to: "skills", label: "Skills", scroll: true },
+    { to: "projects", label: "Projects", scroll: true },
+    { href: "https://www.linkedin.com/in/ramdas-singh/", label: "LinkedIn" },
+    { href: "https://github.com/Ramdas-developer", label: "GitHub" },
+  ];
+  const [navOpen, setNavOpen] = useState(false);
 
   useEffect(()=>{
     AOS.init({
@@ -25,8 +37,102 @@ export default function Home() {
         <meta name="description" content="MERN Stack Developer Portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <header
+  data-aos="zoom-in"
+  className="fixed inset-x-0 top-0 z-50 bg-black/90 backdrop-blur 
+             border-b-2 border-yellow-300 shadow-md"
+>
+  <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-6">
+    {/* logo */}
+    <ScrollLink
+      to="hero"
+      smooth
+      duration={400}
+      className="cursor-pointer text-2xl font-bold text-yellow-500"
+      onClick={() => setNavOpen(false)}
+    >
+      Ramdas Singh
+    </ScrollLink>
+
+    {/* hamburger (shows ≤ md) */}
+    <button
+      onClick={() => setNavOpen(!navOpen)}
+      className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
+      aria-label="Toggle navigation"
+    >
+      {navOpen ? <X size={28} /> : <Menu size={28} />}
+    </button>
+
+    {/* desktop menu (hidden on mobile) */}
+    <nav className="hidden md:block">
+      <ul className="flex gap-8 text-white font-medium">
+        {navItems.map((item) =>
+          item.scroll ? (
+            <li key={item.label}>
+              <ScrollLink
+                to={item.to}
+                smooth
+                duration={400}
+                className="hover:text-yellow-400 cursor-pointer"
+              >
+                {item.label}
+              </ScrollLink>
+            </li>
+          ) : (
+            <li key={item.label}>
+              <Link
+                href={item.href}
+                target="_blank"
+                className="hover:text-yellow-400"
+              >
+                {item.label}
+              </Link>
+            </li>
+          )
+        )}
+      </ul>
+    </nav>
+  </div>
+
+  {/* mobile slide‑over */}
+  <nav
+    className={`md:hidden fixed inset-y-0 right-0 w-64 bg-black text-white transform ${
+      navOpen ? "translate-x-0" : "translate-x-full"
+    } transition-transform duration-300 ease-in-out`}
+  >
+    <ul className="mt-20 flex flex-col gap-6 px-6 text-lg font-medium">
+      {navItems.map((item) =>
+        item.scroll ? (
+          <li key={item.label}>
+            <ScrollLink
+              to={item.to}
+              smooth
+              duration={400}
+              onClick={() => setNavOpen(false)}
+              className="block hover:text-yellow-400"
+            >
+              {item.label}
+            </ScrollLink>
+          </li>
+        ) : (
+          <li key={item.label}>
+            <Link
+              href={item.href}
+              target="_blank"
+              onClick={() => setNavOpen(false)}
+              className="block hover:text-yellow-400"
+            >
+              {item.label}
+            </Link>
+          </li>
+        )
+      )}
+    </ul>
+  </nav>
+</header>
       
-      <header data-aos="zoom-in" className="bg-black text-white p-5 fixed top-0 left-0 w-full z-50 shadow-md border-b-2 border-yellow-300"> 
+      {/* <header data-aos="zoom-in" className="bg-black text-white p-5 fixed top-0 left-0 w-full z-50 shadow-md border-b-2 border-yellow-300"> 
         <div className="container mx-auto flex justify-between items-center cursor-pointer">
         <ScrollLink to="hero" smooth={true} duration={400}><h1 className="text-2xl font-bold text-yellow-500">Ramdas Singh</h1></ScrollLink>
           <nav>
@@ -40,7 +146,7 @@ export default function Home() {
             </ul>
           </nav>
         </div>
-      </header>
+      </header> */}
        
       <main className=" bg-black text-white w-full py-10 pt-10">
         {/*hero section */}
