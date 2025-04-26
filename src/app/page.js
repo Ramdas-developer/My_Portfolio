@@ -38,11 +38,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header
-  data-aos="zoom-in"
-  className="fixed inset-x-0 top-0 z-50 bg-black/90 backdrop-blur 
-             border-b-2 border-yellow-300 shadow-md"
->
+  <header data-aos="zoom-in" className="fixed inset-x-0 top-0 z-50 bg-black/90 backdrop-blur border-b-2 border-yellow-300 shadow-md">
   <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-6">
     {/* logo */}
     <ScrollLink
@@ -57,12 +53,26 @@ export default function Home() {
 
     {/* hamburger (shows ≤ md) */}
     <button
-      onClick={() => setNavOpen(!navOpen)}
-      className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
-      aria-label="Toggle navigation"
-    >
-      {navOpen ? <X size={28} /> : <Menu size={28} />}
-    </button>
+  onClick={() => setNavOpen(!navOpen)}
+  className={`md:hidden flex flex-col justify-center items-center w-10 h-10 rounded focus:outline-none transition duration-300 ${navOpen ? "bg-yellow-400 text-black" : "bg-transparent text-white"}`}
+  aria-label="Toggle navigation"
+>
+  <div
+    className={`w-6 h-0.5 mb-1 bg-current transition-all duration-300 ${
+      navOpen ? "transform rotate-45 translate-y-2" : ""
+    }`}
+  ></div>
+  <div
+    className={`w-6 h-0.5 mb-1 bg-current transition-all duration-300 ${
+      navOpen ? "opacity-0" : ""
+    }`}
+  ></div>
+  <div
+    className={`w-6 h-0.5 bg-current transition-all duration-300 ${
+      navOpen ? "transform -rotate-45 -translate-y-2" : ""
+    }`}
+  ></div>
+</button>
 
     {/* desktop menu (hidden on mobile) */}
     <nav className="hidden md:block">
@@ -75,6 +85,7 @@ export default function Home() {
                 smooth
                 duration={400}
                 className="hover:text-yellow-400 cursor-pointer"
+                onClick={() => setNavOpen(false)} 
               >
                 {item.label}
               </ScrollLink>
@@ -85,6 +96,7 @@ export default function Home() {
                 href={item.href}
                 target="_blank"
                 className="hover:text-yellow-400"
+                onClick={() => setNavOpen(false)}
               >
                 {item.label}
               </Link>
@@ -97,11 +109,11 @@ export default function Home() {
 
   {/* mobile slide‑over */}
   <nav
-    className={`md:hidden fixed inset-y-0 right-0 w-64 bg-black text-white transform ${
+    className={`md:hidden fixed inset-y-0 right-0 w-32 bg-transparent text-white transform ${
       navOpen ? "translate-x-0" : "translate-x-full"
     } transition-transform duration-300 ease-in-out`}
   >
-    <ul className="mt-20 flex flex-col gap-6 px-6 text-lg font-medium">
+    <ul className="mt-20 flex flex-col gap-6 px-6 text-lg font-medium bg-black">
       {navItems.map((item) =>
         item.scroll ? (
           <li key={item.label}>
@@ -131,27 +143,11 @@ export default function Home() {
     </ul>
   </nav>
 </header>
-      
-      {/* <header data-aos="zoom-in" className="bg-black text-white p-5 fixed top-0 left-0 w-full z-50 shadow-md border-b-2 border-yellow-300"> 
-        <div className="container mx-auto flex justify-between items-center cursor-pointer">
-        <ScrollLink to="hero" smooth={true} duration={400}><h1 className="text-2xl font-bold text-yellow-500">Ramdas Singh</h1></ScrollLink>
-          <nav>
-            <ul className="flex space-x-8 text-white">
-            <li><ScrollLink to="hero" smooth={true} duration={400}>Home</ScrollLink></li>
-            <li><ScrollLink to="about" smooth={true} duration={400}>About</ScrollLink></li>
-            <li><ScrollLink to="skills" smooth={true} duration={400}>Skills</ScrollLink></li>
-            <li><ScrollLink to="projects" smooth={true} duration={400}>Projects</ScrollLink></li>
-              <li><Link href="https://www.linkedin.com/in/ramdas-singh/" target='_blank'>Linkedin</Link></li>
-              <li><Link href="https://github.com/Ramdas-developer" target='_blank'>GitHub</Link></li>
-            </ul>
-          </nav>
-        </div>
-      </header> */}
        
       <main className=" bg-black text-white w-full py-10 pt-10">
         {/*hero section */}
-        <section id="hero" className="flex items-center justify-between mx-10 py-20 mt-10">
-          <div className='text-left w-1/2'>
+        <section id="hero" className="flex flex-col md:flex-row items-center justify-between mx-4 md:mx-10 py-10 mt-10">
+          <div className='text-left w-full md:w-1/2'>
           <h2 data-aos="fade-right" data-aos-duration="800" className="text-5xl font-extrabold">Hi, I am </h2>
           <h1 data-aos="fade-right" data-aos-duration="1000" className="text-6xl font-extrabold text-yellow-400">Ramdas Singh,</h1>
           <div data-aos="zoom-in-right" data-aos-duration="500">
@@ -173,7 +169,7 @@ export default function Home() {
           </div>
           </div>
 
-          <div data-aos="fade-left" className='w-1/2 flex justify-center m-10'>
+          <div data-aos="fade-left" className='w-full md:w-1/2 flex justify-center m-10'>
             <img src='/computer1.jpg' alt="profile" className='w-50 h-50 shadow-lg' />
           </div>
         </section>
@@ -248,8 +244,8 @@ export default function Home() {
           <div data-aos="flip-up" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: 'HRMS Management', img: '/HRMS view.png', link: 'https://hrms-management.vercel.app/' },
-              { title: 'Social Media App', img: '/project2.jpg', link: 'https://socialapp.example.com' },
-              { title: 'Blog CMS', img: '/project3.jpg', link: 'https://blogcms.example.com' }
+              { title: 'Social Echo ', img: '/social-echo.png', link: 'https://social-echo-seven.vercel.app/' },
+              { title: 'Blog CMS', img: '/computer1.jpg', link: 'https://blogcms.example.com' }
             ].map((project, index) => (
               <div key={index} className="p-4 border rounded-lg shadow bg-gray-800 transition transform hover:scale-105 hover:shadow-2xl hover:border-yellow-400 hover:bg-gray-700 duration-300">
                 <img src={project.img} alt={project.title} className="w-full h-48 object-cover rounded-md mb-4" />
