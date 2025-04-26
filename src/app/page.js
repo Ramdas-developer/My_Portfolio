@@ -154,7 +154,7 @@ export default function Home() {
           <h2 className="mt-3 text-3xl font-bold">
              I'm a <span className="text-purple-600">
              <Typewriter
-                words={['MERN Stack', 'React Developer', 'Node.js Developer']}
+                words={['MERN Stack Developer', 'React Developer', 'Node.js Developer']}
                 loop={0} // Infinite loop
                 cursor
                 cursorStyle="|"
