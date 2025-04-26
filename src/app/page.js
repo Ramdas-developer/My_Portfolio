@@ -241,14 +241,14 @@ export default function Home() {
         {/*Projects*/}
         <section id="projects" className="py-10 px-10">
           <h3 data-aos="zoom-out" className="text-6xl text-center font-bold mb-8">Projects</h3>
-          <div data-aos="flip-up" style={{width:"110rem", margin:"auto"}} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div data-aos="flip-up" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: 'HRMS Management', img: '/HRMS.png', link: 'https://hrms-management.vercel.app/' }, 
               { title: 'Social Echo ', img: '/social-echo.png', link: 'https://social-echo-seven.vercel.app/' },
-              { title: 'Blog CMS', img: '/HRMS.png', link: 'https://blogcms.example.com' }
+              { title: 'Blog CMS', img: '/computer1.jpg', link: 'https://blogcms.example.com' }
             ].map((project, index) => (
               <div key={index} className="p-4 border rounded-lg shadow bg-gray-800 transition transform hover:scale-105 hover:shadow-2xl hover:border-yellow-400 hover:bg-gray-700 duration-300">
-                <img src={project.img} alt={project.title} className="w-full object-cover rounded-md mb-4" />
+                <img src={project.img} alt={project.title} className="w-full h-48 object-cover rounded-md mb-4" />
                 <h4 className="text-xl font-semibold text-yellow-400">{project.title}</h4>
                 <p className="mt-2 text-gray-300">A full-stack application built using the MERN stack.</p>
                 <a href={project.link} target="_blank" className="mt-4 inline-block bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-400 transition duration-300">Live Demo</a>
