@@ -235,7 +235,7 @@ export default function Home() {
 
               <h2 className="text-2xl font-bold">
                 Building scalable and efficient web applications using <br />{" "}
-                ReactJs, NextJs, NodeJs, Express and MongoDb.
+                ReactJs, NextJs, NestJs, NodeJs and Express.
               </h2>
             </div>
           </div>
@@ -275,7 +275,7 @@ export default function Home() {
 
           <p className="mt-5 text-xl leading-relaxed">
             I specialize in crafting blazing-fast web applications with React,
-            Next.js, Node.js, Express, and MongoDB. My mission? To solve
+            Next.js, Node.js, Nest.js, Express and MongoDB. My mission? To solve
             real-world problems** through **clean code, intuitive UI, and robust
             backend architecture. I don’t just build websites—I create
             **experiences that drive impact 🚀.
@@ -361,20 +361,25 @@ export default function Home() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {[
+              // {
+              //   title: "HRMS Management",
+              //   img: "/HRMS.png",
+              //   link: "https://hrms-management.vercel.app/",
+              // },
+              // {
+              //   title: "Social Echo ",
+              //   img: "/social-echo.png",
+              //   link: "https://social-echo-seven.vercel.app/",
+              // },
               {
-                title: "HRMS Management",
-                img: "/HRMS.png",
-                link: "https://hrms-management.vercel.app/",
+                title: "Dubframe",
+                img: "/Dubframe.png",
+                link: "https://app.dubframe.com/",
               },
               {
-                title: "Social Echo ",
-                img: "/social-echo.png",
-                link: "https://social-echo-seven.vercel.app/",
-              },
-              {
-                title: "Blog CMS",
-                img: "/computer1.jpg",
-                link: "https://blogcms.example.com",
+                title: "Deskpulse",
+                img: "/Deskpulse.png",
+                link: "https://deskpulse.bronzebyte.com/auth/login/",
               },
             ].map((project, index) => (
               <div
